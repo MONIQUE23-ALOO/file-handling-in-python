@@ -1,0 +1,43 @@
+# Open the file "my_file.txt" in write mode
+with open('my_file.txt', 'w') as file:
+    # Write at least three lines of text to the file
+    file.write("Hello, this is the first line with a string.\n")
+    file.write("The second line contains a number: 12345.\n")
+    file.write("Finally, here's a mix of both: 42 is the answer.\n")
+
+print("Text written to 'my_file.txt' successfully.")
+with open('my_file.txt', 'r') as file:
+    # Read the content of the file
+    content = file.read()
+
+# Display the contents on the console
+print("\nContents of 'my_file.txt':")
+print(content)
+with open('my_file.txt', 'a') as file:
+    # Append three more lines to the file
+    file.write("This is the fourth line, appended to the file.\n")
+    file.write("Appending line five, with another number: 67890.\n")
+    file.write("And the final line, which is line six. It's a nice round number.\n")
+
+print("Additional text appended to 'my_file.txt' successfully.")
+
+# Open the file in read mode and display its contents
+with open('my_file.txt', 'r') as file:
+    # Read the content of the file
+    content = file.read()
+
+# Display the contents on the console
+print("\nContents of 'my_file.txt':")
+print(content)
+except FileNotFoundError as fnf_error:
+    print(f"Error: The file was not found. Details: {fnf_error}")
+
+except PermissionError as perm_error:
+    print(f"Error: You do not have permission to access or modify the file. Details: {perm_error}")
+
+except Exception as e:
+    # Catch any other unexpected errors
+    print(f"An unexpected error occurred: {e}")
+
+finally:
+    print("\nExecution of file handling operations completed.")
